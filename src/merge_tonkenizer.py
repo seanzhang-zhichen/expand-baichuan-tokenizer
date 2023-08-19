@@ -81,8 +81,6 @@ def merge_vocab(src_tokenizer_dir, domain_sp_model_file, output_sp_dir, output_h
 
 def test_new_tokenizer(src_tokenizer_dir, new_tokenizer_dir):
     print("-------"*10 + "test" + "-------"*10)
-    src_tokenizer_dir = "/home/dibai/zhangzc/MedicalGPT/zhifa-llm-based-baichuan-13b-chat"
-    new_tokenizer_dir = "../model/merged_tokenizer_hf"
     # Test
     src_tokenizer = AutoTokenizer.from_pretrained(src_tokenizer_dir, trust_remote_code=True)
     new_tokenizer = BaichuanTokenizer.from_pretrained(new_tokenizer_dir)
@@ -102,17 +100,17 @@ def test_new_tokenizer(src_tokenizer_dir, new_tokenizer_dir):
 
 截至 2020 年 9 月 4 日，被告已逾期还款 172 天，为维护原告的合法权益，原告特根据相关法律规定，向人民法院提起民事诉讼，望判如所请。
     '''
-    print(f"Tokenized by LLaMA tokenizer:{src_tokenizer.tokenize(text)}")
-    print(f"Tokenized by LLaMA tokenizer length: {len(src_tokenizer.tokenize(text))} ")
-    print(f"Tokenized by Chinese-LLaMA tokenizer:{new_tokenizer.tokenize(text)}")
-    print(f"Tokenized by Chinese-LLaMA tokenizer length: {len(new_tokenizer.tokenize(text))} ")
+    print(f"Tokenized by src tokenizer:{src_tokenizer.tokenize(text)}")
+    print(f"Tokenized by src tokenizer length: {len(src_tokenizer.tokenize(text))} ")
+    print(f"Tokenized by new tokenizer:{new_tokenizer.tokenize(text)}")
+    print(f"Tokenized by new tokenizer length: {len(new_tokenizer.tokenize(text))} ")
     
 
 
 if __name__ == '__main__':
     output_sp_dir = '../model/merged_tokenizer_sp' # sentencepiece 词表格式保存路径
     output_hf_dir = '../model/merged_tokenizer_hf' # huggingface 词表格式保存路径
-    src_tokenizer_dir = "/home/dibai/zhangzc/MedicalGPT/zhifa-llm-based-baichuan-13b-chat"
+    src_tokenizer_dir = "/home/llm_models/Baichuan-13B-Chat" # 换成你自己的模型文件夹
     domain_sp_model_file = "../model/domain_sp.model"
     domain_vocab_file = "../data/法律诉讼.txt"
     merge_vocab(src_tokenizer_dir, domain_sp_model_file, output_sp_dir, output_hf_dir, domain_vocab_file)

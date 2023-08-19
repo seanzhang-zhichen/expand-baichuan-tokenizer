@@ -17,7 +17,7 @@ def main():
     output_sp_dir = '../model/merged_tokenizer_sp' # sentencepiece 词表格式保存路径
     output_hf_dir = '../model/merged_tokenizer_hf' # huggingface 词表格式保存路径
     
-    src_tokenizer_dir = "/home/dibai/zhangzc/MedicalGPT/zhifa-llm-based-baichuan-13b-chat" # 原始词表路径
+    src_tokenizer_dir = "/home/llm_models/Baichuan-13B-Chat" # 换成你自己的模型文件夹
     domain_sp_model_file = domain_sp_model_name + ".model" # 训练好的词表保存的路径
     domain_vocab_file = "../data/法律诉讼.txt" # 自定义的词表路径
     merge_vocab(src_tokenizer_dir, domain_sp_model_file, output_sp_dir, output_hf_dir, domain_vocab_file)

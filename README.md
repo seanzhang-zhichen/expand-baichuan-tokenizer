@@ -1,2 +1,16 @@
-# expand-baichuan-tokenizer
-拓展百川大模型词表，其他模型也类似
+# DOC
+
+## RUN
+
+
+
+
+```
+pip install -r requirements.txt
+cd src
+python main.py
+```
+
+## 博客
+
+[用自己的领域数据扩充baichuan模型词表]()
